@@ -1,12 +1,5 @@
 @if "%SCM_TRACE_LEVEL%" NEQ "4" @echo off
 
-REM Get DevKit to build Ruby native gems  
-REM If you don't need DevKit, rem this out.
-curl -o DevKit.zip https://dl.bintray.com/oneclick/rubyinstaller/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe
-echo START Unzipping DevKit
-d:\7zip\7za x -y -oDevKit DevKit.zip > devkitout
-echo DONE Unzipping DevKit
-
 REM Put Ruby in Path
 REM You can also use %TEMP% but it is cleared on site restart. Tools is persistent.
 SET PATH=%PATH%;D:\home\site\deployments\tools\r\ruby-2.3.1-x64-mingw32\bin
@@ -28,7 +21,7 @@ REM Azure puts 7zip here!
 echo START Unzipping Ruby
 SetLocal DisableDelayedExpansion & d:\7zip\7za x -xr!*.ri -y ruby231.zip > rubyout
 echo DONE Unzipping Ruby
-
+:end
 REM Get DevKit to build Ruby native gems  
 REM If you don't need DevKit, rem this out.
 curl -o DevKit.zip https://dl.bintray.com/oneclick/rubyinstaller/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe
@@ -56,7 +49,7 @@ call gem uninstall rubygems-update -x
 
 popd
 
-:end
+
 
 REM Need to be in Reposistory
 cd %DEPLOYMENT_SOURCE%
