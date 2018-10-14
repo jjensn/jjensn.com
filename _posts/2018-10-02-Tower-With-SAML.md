@@ -4,7 +4,7 @@ path: '/posts'
 title: 'Tower + SAML Authentication'
 type: 'DEVOPS'
 
-layout: nil
+layout: null
 ---
 
 I'm just going to throw it out there -- I think SAML sucks. And for the cost per managed host, Ansible Tower sucks even more. Putting the two of them together made for a frustrating day of whack-a-mole. 
@@ -44,11 +44,9 @@ If you want everyone in your G-Suite account to be able to authenticate to Tower
 
 If you'd rather create the account in Tower first (to set the user permissions) and use Google to handle the authentication, then you'll need to make a small change to Ansible's config file on the Tower host.
 
-1. Open /etc/tower/settings.py
+1. Open **`/etc/tower/settings.py`**
 
-2. Add the following line at the bottom:
-
-  ```SOCIAL_AUTH_USER_FIELDS = []```
+2. Add the following line at the bottom: **`SOCIAL_AUTH_USER_FIELDS = []`**
 
 The Tower docs crack me up. One paragraph will reference the settings in the admin panel, then the next paragraph talks about the settings.py file without ever mentioning it. I kept pasting this into the fields into the Tower SAML settings page and it (not surprisingly) kept complaining.
 

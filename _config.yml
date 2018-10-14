@@ -1,6 +1,6 @@
 ---
 exclude: ['README.markdown']
 permalink: ':title'
-pygments: true
+highlighter: true
 safe: false
-title: "Answers that I couldn't find on Google;\njjensn@github"
+title: "Answers That I couldn't Google<br/><br/>jjensn@github"
