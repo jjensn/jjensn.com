@@ -21,7 +21,7 @@ REM Azure puts 7zip here!
 echo START Unzipping Ruby
 SetLocal DisableDelayedExpansion & d:\7zip\7za x -xr!*.ri -y ruby231.zip > rubyout
 echo DONE Unzipping Ruby
-:end
+
 REM Get DevKit to build Ruby native gems  
 REM If you don't need DevKit, rem this out.
 curl -o DevKit.zip https://dl.bintray.com/oneclick/rubyinstaller/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe
@@ -49,13 +49,13 @@ call gem uninstall rubygems-update -x
 
 popd
 
-
+:end
 
 REM Need to be in Reposistory
 cd %DEPLOYMENT_SOURCE%
 cd
 
-call gem install bundler --no-ri --no-rdoc
+call gem install bundler
 
 ECHO Bundler install (not update!)
 call bundle install
