@@ -459,7 +459,7 @@ code {
 
 #sidebar h2 {
   color: #888;
-  font-size: 14px;
+  font-size: 13px;
   margin: 0;
 }
 
@@ -481,6 +481,7 @@ code {
   color: #fff;
   display: block;
   padding: 0 0 15px;
+  font-size: 13px;
 }
 #sidebar ul li a:active,
 #sidebar ul li a.active {
@@ -645,4 +646,44 @@ code {
   display: block;
   padding: 15px;
   white-space: pre;
+}
+
+.avatar {
+  display: inline-block!important;
+  overflow: hidden;
+  line-height: 1;
+  vertical-align: middle;
+  border-radius: 20px;
+  margin-right: 10px;
+}
+
+a.avatar, a.avatar:hover, a.avatar:active {
+  text-decoration: none;
+  color: white;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid hsla(0,0%,50%,.33);
+  margin: 2em 0;
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+
+.nocat {
+  color: #42f4a1!important;
+}
+
+i {
+  border: solid #ddd;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-right: 10px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
 }

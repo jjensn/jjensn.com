@@ -3,4 +3,4 @@ exclude: ['README.markdown']
 permalink: ':title'
 highlighter: true
 safe: false
-title: "Answers That I couldn't Google<br/><br/>jjensn@github"
+title: "Answers That I couldn't Google; a technical journal"

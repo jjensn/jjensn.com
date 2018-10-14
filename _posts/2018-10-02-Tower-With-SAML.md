@@ -1,6 +1,6 @@
 ---
-category: Posts
-path: '/posts'
+category: Ansible
+path: '/_posts'
 title: 'Tower + SAML Authentication'
 type: 'DEVOPS'
 
