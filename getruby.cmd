@@ -24,7 +24,7 @@ echo DONE Unzipping Ruby
 
 REM Get DevKit to build Ruby native gems  
 REM If you don't need DevKit, rem this out.
-curl -o DevKit.zip http://cdn.rubyinstaller.org/archives/devkits/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe
+curl -o DevKit.zip https://dl.bintray.com/oneclick/rubyinstaller/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe
 echo START Unzipping DevKit
 d:\7zip\7za x -y -oDevKit DevKit.zip > devkitout
 echo DONE Unzipping DevKit
