@@ -1,13 +1,5 @@
 FROM ruby:2.5-alpine
 
-ARG repo
-ARG branch
-ARG PORT=80
-
-ENV JEKYLL_REPO=https://github.com/jjensn/jjensn.com.git
-ENV JEKYLL_BRANCH=master
-ENV PORT=80
-
 RUN apk update && apk upgrade && \
     apk add --no-cache git openssh build-base gcc bash cmake
 
