@@ -10,6 +10,6 @@ services:
         - repo=https://github.com/jjensn/jjensn.com.git
         - branch=master
         - PORT=80
-    image: jjensn.azurecr.io/jekyll-serve   
+    # image: jjensn.azurecr.io/jekyll-serve   
     ports:
       - '4000:80'
