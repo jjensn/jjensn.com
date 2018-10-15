@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+  jekyll:
+    container_name: jjensn.com
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+      args:
+        - repo=https://github.com/jjensn/jjensn.com.git
+        - branch=master
+        - PORT=80
+    image: jjensn.azurecr.io/jekyll-serve   
+    ports:
+      - '4000:80'
