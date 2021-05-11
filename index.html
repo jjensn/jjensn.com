@@ -10,7 +10,7 @@ layout: default
 {% for post in site.posts %}
   <article class='{{ post.type }}{% if forloop.first == true %} active{% endif %}'>
     <a name='{{ post.url }}' href='#{{ post.url }}'><h2>{% if post.type %}<code><b>{{ post.type }}</b> {{ post.path }}</code> {% endif %}{{ post.title }}</h2></a>
-    <section class='body'>
+    <section class='body'{% if forloop.first == true %} style="display: block;"{% endif %} >
       {{ post.content }}
     </section>
   </article>
