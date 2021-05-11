@@ -9670,11 +9670,12 @@ $('article').each(function (index) {
     var that = $(this);
     var header = that.children('a');
     var body = that.children('.body');
-    if(index > 0) { body.hide(); }
+    
     header.toggle(
         function () { body.slideDown('fast'); that.addClass('active'); },
         function () { body.slideUp('fast'); that.removeClass('active'); }
     );
+    if(index == 0) { header.toggle() }
 });
 
 
