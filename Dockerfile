@@ -14,4 +14,4 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 RUN mkdir /usr/src/site
 WORKDIR /usr/src/site
 ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["sh", "-c", "bundle exec jekyll serve -H 0.0.0.0 -P 80" ]
+CMD ["sh", "-c", "JEKYLL_ENV=production bundle exec jekyll build && ls -la /usr/src/site/_site/*" ]
