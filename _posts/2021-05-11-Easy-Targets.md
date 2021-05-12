@@ -26,7 +26,7 @@ A high powered flashlight is all that's needed to identify between an ID and an 
 ![Example of an ID card](/assets/images/id.png)
 ID cards will usually have a round coil inside
 
-![Example of an IC card](/assets/images/ic.png)
+![Example of an IC card](../assets/images/ic.png)
 IC cards have a rectangle coil and a noticeable chip inside
 
 ## PROXMARK3
@@ -69,7 +69,7 @@ The card does not allow reads or writes unless the reader uses a key to authenti
 
 I like to use scenarios when writing technical articles because it helps cement understanding instead of just being abstract.
 
-An ice cream store has designed their own Mifare card system, and issues Mifare gift cards preloaded with a whatever dollar amount a customer wants. Since it's their system, they decide that the access key should be `0x43 0x4f 0x4f 0x4b 0x49 0x45`, or `COOKIE` (Mifare access keys are 12 bits in length). Since they control both the card reader and the card writer, the writer writes the gift card amount in sector 1, block 4 alongside the access keys (and access mask) to block 7. When a card is scanned, the reader authenticates against the card using the shared key. If the key matches, the card transmits the requested block.
+An ice cream store has designed their own Mifare card system, and issues Mifare gift cards preloaded with a whatever dollar amount a customer wants. Since it's their system, they decide that the access key should be ```0x43 0x4f 0x4f 0x4b 0x49 0x45```, or ```COOKIE``` (Mifare access keys are 12 bits in length). Since they control both the card reader and the card writer, the writer writes the gift card amount in sector 1, block 4 alongside the access keys (and access mask) to block 7. When a card is scanned, the reader authenticates against the card using the shared key. If the key matches, the card transmits the requested block.
 
 ![Mifare card layout](../assets/images/mifare1k.png)
 
@@ -80,16 +80,27 @@ If ice-cream lover Alice were to know that `COOKIE` was the gift card key, she w
 When a card and reader meet, the card is energized magnetically which turns it into a simple CPU. The reader transmits a signal saying "HI HI HI...HI...HI" hoping the card to responds back with its own version of HELLO (technically, it responds with an ATQA packet: answer to request)
 
 > Reader => 0x52 (HI)
+> 
 > Reader => 0x52 (HI)
+> 
 > Reader => 0x52 (HI)
+> 
 > Card => 0x04 0x00 (ATQA -- HELLO, I HEARD YOU)
+> 
 > Reader => 0x93 0x28 (WHO ARE YOU)
+> 
 > Card => 0x34 0xE2 0x8F 0x1B 0x?? (My UID is 0x34E28F1B, validate you heard me with the checksum 0x??)
+> 
 > Reader=> 0x93 0x70 **0x34 0xE2 0x8F 0x1B** 0x66 0x0C 0x6E (I want to talk with you, 0x34E28F1B)
+> 
 > Card=> 0x08 0xB6 0xDD (SOUNDS GOOD BUDDY)
+> 
 > Reader=> 0x60 *0x04* 0xD1 0x3D (let's talk in private 'cause I wanna read block 0x4)
+> 
 > Card=> **[** 0x?? 0x?? 0x?? 0x?? **]** (here's a random number (tag nonce, Nt) we can use)
+> 
 > Reader=> **[** 0x?? 0x?? 0x?? 0x?? **]** **[** 0x?? 0x?? 0x?? 0x?? **]** (roger, heres a little diddy i made that you should be able to figure out if you know the key)(reader nonce, Nr) + (encrypted reader answer, Ar)
+> 
 > Tag => **[** 0x?? 0x?? 0x?? 0x?? **]** (good 2 go buddy)(encrypted tag answer, At)
 
 Above is a typical authentication handshake. The brackets above are just to highlight important byte sequences needed later. Fields we'll need to obtain the key: **Nt, Nr, Ar and At**.
