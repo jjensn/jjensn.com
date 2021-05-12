@@ -1,3 +1,3 @@
 #/bin/bash
 
-DEPLOY_ENV=1 docker-compose up
+docker-compose build && DEPLOY_ENV=1 docker-compose up
