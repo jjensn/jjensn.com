@@ -9670,12 +9670,11 @@ $('article').each(function (index) {
     var that = $(this);
     var header = that.children('a');
     var body = that.children('.body');
-    
+    if(index == 0){ that.addClass('active') } else { body.hide() }
     header.toggle(
         function () { body.slideDown('fast'); that.addClass('active'); },
         function () { body.slideUp('fast'); that.removeClass('active'); }
     );
-    if(index == 0) { header.toggle() }
 });
 
 
@@ -9698,6 +9697,8 @@ $('#sidebar a').each(function () {
     });
 });
 
+
+
 // Hide all/Show all links
 var show = $('<a class=\'control show\'>Show all</a>');
 show.click(function () {
@@ -9710,7 +9711,10 @@ hide.click(function () {
   $('#content article.active > a').trigger('click');    
 });
 $('#content').prepend(hide);
-
+$( document ).ready(function() {
+    console.log( "ready!" );
+    $('article:first a').trigger('click');
+});
 // Making our navigation sticky
 new Filter($('#sidebar > ul'));
 });

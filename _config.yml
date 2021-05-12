@@ -3,4 +3,4 @@ exclude: ['README.markdown']
 permalink: ':title'
 highlighter: true
 safe: false
-title: "security research and personal projects"
+title: "a security researcher and his projects"

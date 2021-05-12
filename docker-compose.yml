@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
   jekyll:
@@ -10,8 +10,10 @@ services:
         - repo=https://github.com/jjensn/jjensn.com.git
         - branch=master
         - PORT=80
+    environment:
+      - DEPLOY_ENV=${DEPLOY_ENV}
     volumes:
-      - ./site:/export
-    # image: jjensn.azurecr.io/jekyll-serve   
+      - ./site:/export 
+      - ${PWD}:/development
     ports:
       - '4000:80'

@@ -594,6 +594,14 @@ code {
 #content article.DEVOPS a h2 code b {
   background: #10b2b8;
 }
+/* RESEARCH */
+#content article.RESEARCH a h2 code {
+  color: #ca3915;
+}
+
+#content article.RESEARCH a h2 code b {
+  background: #ca3915;
+}
 
 /* POST */
 #content article.POST a h2 code {

@@ -7,7 +7,7 @@ type: 'DEVOPS'
 layout: null
 ---
 
-I'm just going to throw it out there -- I think SAML sucks. And for the cost per managed host, Ansible Tower sucks even more. Putting the two of them together made for a frustrating day of whack-a-mole. 
+I'm just going to throw it out there -- SAML is complicated. And for the cost per managed host, Ansible Tower with SAML sucks even more. Putting the two of them together made for a frustrating day of whack-a-mole. 
 
 Find my solution below to properly implement G-Suite SAML authentication with Ansible Tower.
 
