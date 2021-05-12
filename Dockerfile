@@ -14,4 +14,4 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 RUN mkdir /usr/src/site
 WORKDIR /usr/src/site
 ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["sh", "-c", "JEKYLL_ENV=production bundle exec jekyll build && cp -prvf /usr/src/site/_site/*.html /export/; cp -prvf /usr/src/site/_site/*.md /export/; cp -prvf /usr/src/site/_site/*.css /export/; cp -prvf /usr/src/site/_site/*.js /export/; rm -rf /usr/src/site" ]
+CMD ["sh", "-c", "JEKYLL_ENV=production bundle exec jekyll build && cp -prvf /usr/src/site/_site/*.html /export/; cp -prvf /usr/src/site/_site/*.md /export/; cp -prvf /usr/src/site/_site/*.css /export/; cp -prvf /usr/src/site/_site/*.js /export/; cp -prvf assets /export/; rm -rf /usr/src/site" ]
