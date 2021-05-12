@@ -24,9 +24,11 @@ There are a ton of different smart card types and standards. Regardless of what 
 A high powered flashlight is all that's needed to identify between an ID and an IC card.
 
 ![Example of an ID card](../assets/images/id.png)
+
 ID cards will usually have a round coil inside
 
 ![Example of an IC card](../assets/images/ic.png)
+
 IC cards have a rectangle coil and a noticeable chip inside
 
 ## PROXMARK3
@@ -146,7 +148,11 @@ After about 15 seconds, the Proxmark had recorded enough data to find the key.
 
 I made my way to the car, opened the laptop and pressed the side-button to end the sniffing session.
 
-Finally, to pull the data out of the PM3: ```hf 14a list```. This prints it to the screen. I saved the terminal output to a text file in case my laptop died.
+Finally, to pull the data out of the PM3:
+
+```hf 14a list```
+
+This prints it to the screen. I saved the terminal output to a text file in case my laptop died.
 
 Then I finished the sporting clay course. And I definitely need more practice.
 
@@ -166,7 +172,9 @@ PM3 (the software) by iceman comes with a tool called mfkey64 which will take in
 
 (redacted, 'cause getting sued sucks)
 
-On OSX, mfkey64 was located: ```/opt/homebrew/Cellar/proxmark3/HEAD-0d3c297/share/proxmark3/tools```
+On OSX, mfkey64 was located: 
+
+```/opt/homebrew/Cellar/proxmark3/HEAD-0d3c297/share/proxmark3/tools```
 
 ## Chk & Dump
 
@@ -176,15 +184,17 @@ Finally, with a key in hand, we can check it against the card:
 
 ![PM3 Dump](../assets/images/pm3_chk.png)
 
-```--dump``` writes the key into a file, which PM3 will use later when we dump the card contents.
+*--dump* writes the key into a file, which PM3 will use later when we dump the card contents.
 
 If all your sectors look like this, you are ready to dump the card. If key A is found but not B (or visa versa), you should look into the nested attacks. Luckily PM3 will do this for you automagically as long as you have one key.
 
-```hf mf dump --1k``` dumps the card contents (reading from the key file you created in the last step). 1K was the size of my card, but it might be different for yours.
+```hf mf dump --1k```
+
+Dump the card contents (reading from the key file you created in the last step). 1K was the size of my card, but it might be different for yours.
 
 # Analysis
 
-For me, analyzing the initial dumped ```.bin``` with a hex editor didn't yield too much information. I made another trip out to the range to throw a single clay pidgeon to determine where the counter was being stored on the card.
+For me, analyzing the initial dumped *.bin* with a hex editor didn't yield too much information. I made another trip out to the range to throw a single clay pidgeon to determine where the counter was being stored on the card.
 
 ![Dump Diff](../assets/images/pm3_analysis.png)
 
