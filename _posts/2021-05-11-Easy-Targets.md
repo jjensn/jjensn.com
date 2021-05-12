@@ -23,7 +23,7 @@ There are a ton of different smart card types and standards. Regardless of what 
 
 A high powered flashlight is all that's needed to identify between an ID and an IC card.
 
-![Example of an ID card](/assets/images/id.png)
+![Example of an ID card](../assets/images/id.png)
 ID cards will usually have a round coil inside
 
 ![Example of an IC card](../assets/images/ic.png)
@@ -41,19 +41,20 @@ My device has two USB ports, one at the back towards the coil, and one on the si
 
 I'm on OSX, so I followed [these instructions](https://forum.dangerousthings.com/t/getting-started-with-proxmark3-on-mac/10156) which, for the must part, were still relevant enough. The Amazon reviews mention one key piece of information that the forum leaves out, which is to **hold the side button down (while plugging in the USB cable) to get the device to be recognizable by the flashing software**.
 
-Once flashed, I disconnect and reconnect the device, then run ```pm3``` in the OSX terminal.
+Once flashed, I disconnect and reconnect the device, then in the terminal, run:
+```pm3```
 
 ![PM3 Console](../assets/images/pm3.png)
 
-Validating that all the antennas are responding with ```hw tune```:
+Validating that all the antennas are responding with _hw tune_:
 
-- Both the LF (LOW FREQUENCY) antenna and HF (HIGH FREQUENCY) antenna report `OK`
+- Both the LF (LOW FREQUENCY) antenna and HF (HIGH FREQUENCY) antenna report **OK**
 - The voltage ranges for both the HF and LF are between 25V-40V. My LF antenna reads 125.00kHz and my HF reads 13.56MHz.
 
 Results are normal and it's time to perform the first scan on the card.
 
 ## Identifying The IC Card Type
-Placing the card on top of the device and running ```auto``` in the PM3 console tells us we're working with a Mifare IC card, 1K storage size.
+Placing the card on top of the device and running _auto_ in the PM3 console tells us we're working with a Mifare IC card, 1K storage size.
 
 ![PM3 Auto Results](../assets/images/pm3_auto.png)
 
@@ -69,11 +70,15 @@ The card does not allow reads or writes unless the reader uses a key to authenti
 
 I like to use scenarios when writing technical articles because it helps cement understanding instead of just being abstract.
 
-An ice cream store has designed their own Mifare card system, and issues Mifare gift cards preloaded with a whatever dollar amount a customer wants. Since it's their system, they decide that the access key should be ```0x43 0x4f 0x4f 0x4b 0x49 0x45```, or ```COOKIE``` (Mifare access keys are 12 bits in length). Since they control both the card reader and the card writer, the writer writes the gift card amount in sector 1, block 4 alongside the access keys (and access mask) to block 7. When a card is scanned, the reader authenticates against the card using the shared key. If the key matches, the card transmits the requested block.
+An ice cream store has designed their own Mifare card system, and issues Mifare gift cards preloaded with a whatever dollar amount a customer wants. Since it's their system, they decide that the access key should be:
+
+```0x43 0x4f 0x4f 0x4b 0x49 0x45```
+
+Or *COOKIE* (Mifare access keys are 12 bits in length). Since they control both the card reader and the card writer, the writer writes the gift card amount in sector 1, block 4 alongside the access keys (and access mask) to block 7. When a card is scanned, the reader authenticates against the card using the shared key. If the key matches, the card transmits the requested block.
 
 ![Mifare card layout](../assets/images/mifare1k.png)
 
-If ice-cream lover Alice were to know that `COOKIE` was the gift card key, she would be able to make her own gift cards in the comfort of her own home with a Proxmark3.
+If ice-cream lover Alice were to know that *COOKIE* was the gift card key, she would be able to make her own gift cards in the comfort of her own home with a Proxmark3.
 
 ## Authentication (For real)
 
