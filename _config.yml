@@ -4,30 +4,24 @@ doks:
     color_theme: # Available themes: blue (default), green, purple, red and yellow
     header:
         logo:
-            text: a security researcher and his projects
-            image:
-        nav:
-            - item_name: Item 1
-              item_url: '#'
-            - item_name: Item 2
-              item_url: '#'
-            - item_name: Item 3
-              item_url: '#'
+            text: jjensn.com
+            image: 
+        # nav:
+        #     - item_name: Item 1
+        #       item_url: '#'
+        #     - item_name: Item 2
+        #       item_url: '#'
+        #     - item_name: Item 3
+        #       item_url: '#'
     footer:
         content:
             logo:
-                text: Project name
+                text: jjensn.com
                 image:
-            copyright: Copyright &copy; 2017. - Project name <br>All rights reserved.
+            copyright: always open for new opportunities! hire (a)t jjensn.com
         social_list:
-            - network_name: facebook
-              profile_url: '#'
-            - network_name: twitter
-              profile_url: '#'
-            - network_name: instagram
-              profile_url: '#'
-            - network_name: youtube
-              profile_url: '#'
+            - network_name: github
+              profile_url: 'https://github.com/jjensn'
     google_analytics:
         tracking_code: # Add your Google Analytics tracking code to activate Google Analytics
     comments:
@@ -41,5 +35,5 @@ sass:
 # Jekyll settings
 layouts_dir: ./doks-theme/_layouts
 includes_dir: ./doks-theme/_includes
-exclude: [ 'README.md', 'CHANGELOG.md', 'old', 'dev.sh', 'docker-compose.yml', 'docker-entrypoint.sh', 'Dockerfile' ]
+exclude: [ 'README.md', 'CHANGELOG.md', 'old', 'dev.sh', 'docker-compose.yml', 'docker-entrypoint.sh', 'Dockerfile', 'old.jjensn.com', 'build.sh', 'documentation' ]
 permalink: /:title/
