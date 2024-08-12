@@ -21,8 +21,8 @@ buttons:
 
 # Grid navigation
 grid_navigation:
-    - title: 'At Home In Your Firmware: Got Any SMMacks?'
-      excerpt: Analysis of CVE-2024-36877 - SMM Memory Corruption Vulnerability
+    - title: 'At Home In Your Firmware: Analysis of CVE-2024-36877'
+      excerpt: SMM Memory Corruption Vulnerability in MSI firmware
       cta: Read Latest
       url: '/at-home-in-your-firmware'
     - title: 'Mifare Smart Cards: Easy Targets'
